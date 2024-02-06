@@ -13,10 +13,20 @@ public class Purchase {
     private Long id;
     @OneToMany(mappedBy = "purchase")
     private Set<Book> books;
-//    @ManyToOne
-//    private Customer customer;
-//    @ManyToOne
-//    private Shipping shipping;
+    @ManyToOne
+    @JoinTable(
+            name = "customer_purchase",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "purchase_id")
+    ) // fine
+    private Customer customer;
+    @ManyToOne
+    @JoinTable(
+            name = "shipping_purchase",
+            joinColumns = @JoinColumn(name = "shipping_id"),
+            inverseJoinColumns = @JoinColumn(name = "purchase_id")
+    ) // fine
+    private Shipping shipping;
     private BigDecimal price;
     private Timestamp orderDate;
 
@@ -51,6 +61,22 @@ public class Purchase {
 
     public void setOrderDate(Timestamp orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Shipping getShipping() {
+        return shipping;
+    }
+
+    public void setShipping(Shipping shipping) {
+        this.shipping = shipping;
     }
 }
 
