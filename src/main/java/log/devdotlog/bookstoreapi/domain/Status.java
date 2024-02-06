@@ -6,7 +6,7 @@ public enum Status {
 // PENDING      -
 // NO PAYMENT
 /**
- * Awaiting Payment: (For ATM/iBanking payment options only.) Order was made, however the customer has not made the payment and/or submitted their payment details.
+ * Awaiting Payment: (For ATM/iBanking payment options only.) Purchase was made, however the customer has not made the payment and/or submitted their payment details.
  * Unpaid payment status includes orders that are in Authorized, Pending, Expired, and Partially paid payment status
  */
 // FAILED       -
