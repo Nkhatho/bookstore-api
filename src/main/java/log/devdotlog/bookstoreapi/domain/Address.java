@@ -1,6 +1,5 @@
 package log.devdotlog.bookstoreapi.domain;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import jakarta.persistence.*;
 import lombok.*;
 
