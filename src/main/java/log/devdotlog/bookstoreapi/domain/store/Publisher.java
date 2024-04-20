@@ -1,7 +1,7 @@
 package log.devdotlog.bookstoreapi.domain.store;
 
 import jakarta.persistence.*;
-import log.devdotlog.bookstoreapi.domain.NamedEntity;
+import log.devdotlog.bookstoreapi.domain.common.NamedEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

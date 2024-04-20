@@ -1,7 +1,7 @@
 package log.devdotlog.bookstoreapi.domain.order;
 
 import jakarta.persistence.*;
-import log.devdotlog.bookstoreapi.domain.BaseEntity;
+import log.devdotlog.bookstoreapi.domain.common.BaseEntity;
 import log.devdotlog.bookstoreapi.domain.store.Book;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

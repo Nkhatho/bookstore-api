@@ -1,4 +1,4 @@
-package log.devdotlog.bookstoreapi.domain;
+package log.devdotlog.bookstoreapi.domain.common;
 
 public enum Status {
     PENDING, FAILED, PROCESSING, CANCELLED,

@@ -1,7 +1,7 @@
 package log.devdotlog.bookstoreapi.domain.order;
 
 import jakarta.persistence.*;
-import log.devdotlog.bookstoreapi.domain.Person;
+import log.devdotlog.bookstoreapi.domain.common.Person;
 import lombok.*;
 
 import java.util.Set;

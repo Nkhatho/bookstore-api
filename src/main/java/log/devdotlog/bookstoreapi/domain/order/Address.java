@@ -1,7 +1,7 @@
 package log.devdotlog.bookstoreapi.domain.order;
 
 import jakarta.persistence.*;
-import log.devdotlog.bookstoreapi.domain.BaseEntity;
+import log.devdotlog.bookstoreapi.domain.common.BaseEntity;
 import lombok.*;
 
 @NoArgsConstructor

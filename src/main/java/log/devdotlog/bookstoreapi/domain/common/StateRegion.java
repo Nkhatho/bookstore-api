@@ -1,8 +1,4 @@
-package log.devdotlog.bookstoreapi.domain;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.*;
+package log.devdotlog.bookstoreapi.domain.common;
 
 //@NoArgsConstructor
 //@AllArgsConstructor
