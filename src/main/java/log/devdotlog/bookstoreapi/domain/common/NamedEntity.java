@@ -9,7 +9,7 @@ import lombok.*;
 public class NamedEntity extends BaseEntity{
     private String name;
 
-    @Builder(builderMethodName = "NamedEntityBuilder")
+    @Builder(builderMethodName = "namedEntityBuilder")
     public NamedEntity(Long id, String name) {
         super(id);
         this.name = name;

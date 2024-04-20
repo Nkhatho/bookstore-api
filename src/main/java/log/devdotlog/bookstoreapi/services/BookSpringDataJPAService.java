@@ -32,7 +32,8 @@ public class BookSpringDataJPAService implements BookService {
 
     @Override
     public BookDTO persistBook(BookDTO bookDTO) {
-        return null;
+        Book book = bookRepository.save(EntityBuilder.buildBookEntity(bookDTO));
+        return DTOBuilder.buildBookDTO(book);
     }
 
     @Override

@@ -6,10 +6,7 @@ import log.devdotlog.bookstoreapi.repositories.BookRepository;
 import log.devdotlog.bookstoreapi.services.BookService;
 import log.devdotlog.bookstoreapi.web.model.BookDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -19,6 +16,11 @@ public class BookController {
     private final BookService bookService;
     public BookController(BookService bookService) {
         this.bookService = bookService;
+    }
+
+    @PostMapping("/ ")
+    public ResponseEntity<BookDTO> addBook(@RequestBody BookDTO bookDTO) {
+        return null;
     }
 
     @GetMapping("/{id}")
