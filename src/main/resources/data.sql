@@ -1,0 +1,1 @@
+insert into publisher(name) values ('DAILY BOOKS');
