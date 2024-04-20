@@ -15,8 +15,7 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "publisher")
-public class Publisher extends BaseEntity {
-    private String name;
+public class Publisher extends NamedEntity {
     @OneToMany(mappedBy = "publisher")
     private Set<Book> books;
 }

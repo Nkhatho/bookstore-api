@@ -12,9 +12,7 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "country")
-public class Country extends BaseEntity {
-    @Column(name = "name")
-    private String name;
+public class Country extends NamedEntity {
     @OneToMany(mappedBy = "country")
     private Set<Address> addresses;
 }

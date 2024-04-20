@@ -13,11 +13,11 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "category")
-public class Category extends BaseEntity {
-    @Column(name = "name")
-    private String name;
+public class Category extends NamedEntity {
+
     @Column(name = "description")
     private String description;
+
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "book")
     private Set<Book> books = new HashSet<>();
 }

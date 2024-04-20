@@ -9,7 +9,6 @@ import lombok.*;
 @Setter
 @Builder
 @MappedSuperclass
-public class Person extends BaseEntity {
-    private String name;
+public class Person extends NamedEntity {
     private String surname;
 }

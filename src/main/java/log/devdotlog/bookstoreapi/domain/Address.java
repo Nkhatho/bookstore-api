@@ -11,14 +11,27 @@ import lombok.*;
 @Entity
 @Table(name = "address")
 public class Address extends BaseEntity {
-    @Column(name = "street_number")
+    @Column(
+            name = "street_number",
+            nullable = false
+    )
     private Long streetNumber;
-    @Column(name = "street_name")
+
+    @Column(
+            name = "street_name",
+            nullable = false
+    )
     private String streetName;
-    @Column(name = "city")
+
+    @Column(
+            name = "city",
+            nullable = false
+    )
     private String city;
+
     @ManyToOne
     private Country country;
+
     @ManyToOne
     @JoinTable(
             name = "customer_address",

@@ -13,13 +13,7 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "shipping")
-public class Shipping extends BaseEntity {
-
-    @Column(
-            name = "name",
-            nullable = false
-    )
-    private String name;
+public class Shipping extends NamedEntity {
 
     @Column(
             name = "price",
