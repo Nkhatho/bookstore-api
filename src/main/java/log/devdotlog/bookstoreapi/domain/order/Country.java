@@ -6,11 +6,8 @@ import lombok.*;
 
 import java.util.Set;
 
-@AllArgsConstructor
 @NoArgsConstructor
-@Setter
-@Getter
-@Builder
+@Data
 @Entity
 @Table(name = "country")
 public class Country extends NamedEntity {
@@ -18,6 +15,11 @@ public class Country extends NamedEntity {
     private Set<Address> addresses;
 //    @OneToMany(mappedBy = "country")
 //    private Set<StateRegion> stateRegions;
+    @Builder(builderMethodName = "countryBuilder")
+    public Country(Long id, String name, Set<Address> addresses) {
+        super(id, name);
+        this.addresses = addresses;
+    }
 }
 
 // TODO: Figure out the order_history along with the order_status

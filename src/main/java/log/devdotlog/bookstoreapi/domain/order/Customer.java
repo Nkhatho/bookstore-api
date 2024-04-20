@@ -6,11 +6,8 @@ import lombok.*;
 
 import java.util.Set;
 
-@AllArgsConstructor
 @NoArgsConstructor
-@Setter
-@Getter
-@Builder
+@Data
 @Entity
 @Table(name = "customer")
 public class Customer extends Person {
@@ -28,6 +25,15 @@ public class Customer extends Person {
 
     @OneToMany(mappedBy = "customer")
     private Set<Address> addresses;
+
+    @Builder(builderMethodName = "customerBuilder")
+    public Customer(Long id, String name, String surname, String email, String cellphoneNumber, Set<Purchase> purchases, Set<Address> addresses) {
+        super(id, name, surname);
+        this.email = email;
+        this.cellphoneNumber = cellphoneNumber;
+        this.purchases = purchases;
+        this.addresses = addresses;
+    }
 }
 
 // TODO: Figure out the order_history along with the order_status
