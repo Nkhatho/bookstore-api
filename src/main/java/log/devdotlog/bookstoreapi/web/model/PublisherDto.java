@@ -1,6 +1,6 @@
 package log.devdotlog.bookstoreapi.web.model;
 
-import log.devdotlog.bookstoreapi.domain.Book;
+import log.devdotlog.bookstoreapi.domain.store.Book;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

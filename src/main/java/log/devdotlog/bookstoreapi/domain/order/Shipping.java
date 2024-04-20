@@ -1,6 +1,7 @@
-package log.devdotlog.bookstoreapi.domain;
+package log.devdotlog.bookstoreapi.domain.order;
 
 import jakarta.persistence.*;
+import log.devdotlog.bookstoreapi.domain.NamedEntity;
 import lombok.*;
 
 import java.math.BigDecimal;

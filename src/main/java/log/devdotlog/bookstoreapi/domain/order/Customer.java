@@ -1,6 +1,7 @@
-package log.devdotlog.bookstoreapi.domain;
+package log.devdotlog.bookstoreapi.domain.order;
 
 import jakarta.persistence.*;
+import log.devdotlog.bookstoreapi.domain.Person;
 import lombok.*;
 
 import java.util.Set;
@@ -13,6 +14,8 @@ import java.util.Set;
 @Entity
 @Table(name = "customer")
 public class Customer extends Person {
+
+    // customer has an account ( to be implemeted )
 
     @Column(name = "email")
     private String email;

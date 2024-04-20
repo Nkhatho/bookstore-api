@@ -1,13 +1,12 @@
-package log.devdotlog.bookstoreapi.domain;
+package log.devdotlog.bookstoreapi.domain.store;
 
 import jakarta.persistence.*;
+import log.devdotlog.bookstoreapi.domain.NamedEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Set;
 @Data // Gets and Sets and Eq and Hash
 @NoArgsConstructor

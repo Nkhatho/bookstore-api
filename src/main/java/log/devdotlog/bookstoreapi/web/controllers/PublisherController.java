@@ -1,6 +1,6 @@
 package log.devdotlog.bookstoreapi.web.controllers;
 
-import log.devdotlog.bookstoreapi.domain.Publisher;
+import log.devdotlog.bookstoreapi.domain.store.Publisher;
 import log.devdotlog.bookstoreapi.repositories.PublisherRepository;
 import log.devdotlog.bookstoreapi.web.model.PublisherDto;
 import org.springframework.http.HttpStatus;

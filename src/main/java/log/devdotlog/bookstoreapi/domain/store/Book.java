@@ -1,7 +1,8 @@
-package log.devdotlog.bookstoreapi.domain;
+package log.devdotlog.bookstoreapi.domain.store;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import jakarta.persistence.*;
+import log.devdotlog.bookstoreapi.domain.NamedEntity;
+import log.devdotlog.bookstoreapi.domain.order.Purchase;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -15,13 +16,10 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "book")
-public class Book extends BaseEntity {
+public class Book extends NamedEntity {
 
-    @Column(
-            name = "title",
-            nullable = false
-    )
-    private String title;
+    // Note: A book has a title which is essentially a name, therefore it extends named entity.
+    // book title will be book name
 
     @Column(
             name = "isbn",
