@@ -1,4 +1,4 @@
-package log.devdotlog.bookstoreapi.services;
+package log.devdotlog.bookstoreapi.domain.builders;
 
 import log.devdotlog.bookstoreapi.domain.store.Book;
 import log.devdotlog.bookstoreapi.web.model.BookDTO;
@@ -10,11 +10,10 @@ public class EntityBuilder {
                 .name(bookDTO.getName())
                 .isbn(bookDTO.getIsbn())
                 .pages(bookDTO.getPages())
-                .author(bookDTO.getAuthor())
-                .publisher(bookDTO.getPublisher())
+                .authors(bookDTO.getAuthors())
+                .bookPublishers(bookDTO.getBookPublishers())
                 .publishDate(bookDTO.getPublishDate())
-                .purchase(bookDTO.getPurchase())
-                .categories(bookDTO.getCategories())
+                .category(bookDTO.getCategory())
                 .build();
     }
 }

@@ -1,0 +1,24 @@
+-- -- insert books
+-- insert into book(name, isbn, pages, publish_date) values ('The Greater Beyond', '2345678909878', 1001, current_timestamp);
+-- insert into book(name, isbn, pages, publish_date) values ('After The Effect', '3456789098789', 200, current_timestamp);
+-- insert into book(name, isbn, pages, publish_date) values ('Harry Potter: Book Of Souls', '4567890987890', 604, current_timestamp);
+-- insert into book(name, isbn, pages, publish_date) values ('KJV Bible', '5678909878909', 1001, current_timestamp);
+-- insert into book(name, isbn, pages, publish_date) values ('UFOs: Are They Real ?', '6789098789098', 245, current_timestamp);
+-- --insert authors
+-- insert into author(name, surname) values ('Timothy', 'Bradley');
+-- insert into author(name, surname) values ('Andrew', 'Tate');
+-- insert into author(name, surname) values ('Flavius', 'Dumbledore');
+-- insert into author(name, surname) values ('James', 'Sanders');
+-- insert into author(name, surname) values ('Bret', 'Cons');
+-- -- insert publishers
+-- insert into publisher(name) values ('The Books International');
+-- insert into publisher(name) values ('Money Matters');
+-- insert into publisher(name) values ('Griffins');
+-- insert into publisher(name) values ('The Old West Publishers');
+-- insert into publisher(name) values ('Double Agent Publishing');
+-- -- insert category
+-- insert into category(name, description) values ('Philosophy', 'A great read to help one enhance their way of thinking and perspective.');
+-- insert into category(name, description) values ('Financial', 'Everything that you need to know about how to make money is in this book, first step in making that money is buying this book');
+-- insert into category(name, description) values ('Fiction', 'This is a good old Harry Potter book');
+-- insert into category(name, description) values ('Truth', 'This is the truth, the whole truth and nothing but the truth, the word of God');
+-- insert into category(name, description) values ('Sci-Fi', 'A book about beings of unnatural abilities');

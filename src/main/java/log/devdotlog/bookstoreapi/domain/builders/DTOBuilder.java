@@ -1,4 +1,4 @@
-package log.devdotlog.bookstoreapi.services;
+package log.devdotlog.bookstoreapi.domain.builders;
 
 import log.devdotlog.bookstoreapi.domain.store.Book;
 import log.devdotlog.bookstoreapi.web.model.BookDTO;
@@ -10,11 +10,10 @@ public class DTOBuilder {
                 .name(book.getName())
                 .isbn(book.getIsbn())
                 .pages(book.getPages())
-                .author(book.getAuthor())
-                .publisher(book.getPublisher())
+                .authors(book.getAuthors())
+                .bookPublishers(book.getBookPublishers())
                 .publishDate(book.getPublishDate())
-                .purchase(book.getPurchase())
-                .categories(book.getCategories())
+                .category(book.getCategory())
                 .build();
     }
 }
