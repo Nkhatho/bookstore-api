@@ -3,6 +3,7 @@ package log.devdotlog.bookstoreapi.web.controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 //import log.devdotlog.bookstoreapi.domain.order.*;
+import log.devdotlog.bookstoreapi.domain.builders.EntityBuilder;
 import log.devdotlog.bookstoreapi.domain.store.Author;
 import log.devdotlog.bookstoreapi.domain.store.Book;
 import log.devdotlog.bookstoreapi.domain.store.BookPublisher;
@@ -51,6 +52,10 @@ class BookControllerTest {
 
     Timestamp currentTimeStamp;
 
+    BookDTO bookDTO;
+
+    Long id;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -68,24 +73,9 @@ class BookControllerTest {
                 .publishedDate(new Date())
                 //.books(new HashSet<>())
                         .build());
+        id = 1L;
 
-        books.add(Book.bookBuilder()
-                .name("The Greater Beyond")
-                .isbn("1234567890987")
-                .pages(1001L)
-                .authors(authors)
-                .bookPublishers(bookPublishers)
-                .publishDate(currentTimeStamp)
-                .build());
-    }
-
-    @Test
-    void addBook() {
-    }
-    @Test
-    void addBookTest() throws Exception {
-        Long id = 1L;
-        BookDTO bookDTO = BookDTO.builder()
+        bookDTO = BookDTO.builder()
                 .id(id)
                 .name("The Greater Beyond")
                 .isbn("1234567890987")
@@ -94,39 +84,34 @@ class BookControllerTest {
                 .bookPublishers(bookPublishers)
                 .publishDate(currentTimeStamp)
                 .build();
+
+        books.add(EntityBuilder.buildBookEntity(bookDTO));
+    }
+    @Test
+    void addBookTest() throws Exception {
+
         given(bookService.persistBook(bookDTO)).willReturn(bookDTO);
+
         String json = objectMapper.writeValueAsString(bookDTO);
+
         mockMvc.perform(post("/v1/bookstore/books/")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.id").value(id))
                 .andDo(print());
-
     }
 
     @Test
     void getBookById() throws Exception {
-        Long id = 1L;
-        BookDTO bookDTO = BookDTO.builder()
-                .id(id)
-                .name("The Greater Beyond")
-                .isbn("1234567890987")
-                .pages(1001L)
-                .authors(authors)
-                .bookPublishers(bookPublishers)
-                .publishDate(currentTimeStamp)
-                .build();
 
         given(bookService.retrieveBookById(id)).willReturn(bookDTO);
 
         mockMvc.perform(get("/v1/bookstore/books/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.id").value(id))
+                .andExpect(jsonPath("$.name").value("The Greater Beyond"))
                 .andDo(print());
-//        .andExpect(jsonPath("$.name").value("The Greater Beyond"))
-
-
     }
 }
