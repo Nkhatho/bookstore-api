@@ -9,6 +9,7 @@ import log.devdotlog.bookstoreapi.domain.store.BookPublisher;
 import log.devdotlog.bookstoreapi.domain.store.Publisher;
 import log.devdotlog.bookstoreapi.services.BookService;
 import log.devdotlog.bookstoreapi.web.model.BookDTO;
+import log.devdotlog.bookstoreapi.web.responsebody.BookDataResponseBody;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -123,7 +124,7 @@ class BookControllerTest {
         mockMvc.perform(get("/v1/bookstore/books/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.data.id").value(1))
                 .andDo(print());
 //        .andExpect(jsonPath("$.name").value("The Greater Beyond"))
 
