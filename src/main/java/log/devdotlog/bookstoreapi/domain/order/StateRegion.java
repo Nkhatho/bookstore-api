@@ -1,4 +1,4 @@
-package log.devdotlog.bookstoreapi.domain.common;
+package log.devdotlog.bookstoreapi.domain.order;
 
 //@NoArgsConstructor
 //@AllArgsConstructor
