@@ -1,6 +1,7 @@
 package log.devdotlog.bookstoreapi.web.model;
 
 import log.devdotlog.bookstoreapi.domain.store.Author;
+import log.devdotlog.bookstoreapi.domain.store.Book;
 import log.devdotlog.bookstoreapi.domain.store.BookPublisher;
 import log.devdotlog.bookstoreapi.domain.store.Category;
 import lombok.AllArgsConstructor;
@@ -16,18 +17,11 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BookDTO {
-    // Note: A book has a title which is essentially a name, therefore it extends named entity.
-    // book title will be book namezz
+public class AuthorDTO {
+
     private Long id;
     private String name;
-    private String isbn;
-    private Long pages;
-    private Set<Author> authors;
-    private Set<BookPublisher> bookPublishers = new HashSet<>();
-    private Timestamp publishDate;
-    private Category category;
-    private String description;
-
+    private String surname;
+    private Set<Book> books = new HashSet<>();
 }
 // TODO: Figure out the order_history along with the order_status

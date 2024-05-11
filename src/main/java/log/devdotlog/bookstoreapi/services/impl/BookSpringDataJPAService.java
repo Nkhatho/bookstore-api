@@ -1,9 +1,10 @@
-package log.devdotlog.bookstoreapi.services;
+package log.devdotlog.bookstoreapi.services.impl;
 
 import log.devdotlog.bookstoreapi.domain.builders.DTOBuilder;
 import log.devdotlog.bookstoreapi.domain.builders.EntityBuilder;
 import log.devdotlog.bookstoreapi.domain.store.Book;
 import log.devdotlog.bookstoreapi.repositories.BookRepository;
+import log.devdotlog.bookstoreapi.services.BookService;
 import log.devdotlog.bookstoreapi.web.exceptions.BookNotFoundException;
 import log.devdotlog.bookstoreapi.web.model.BookDTO;
 import org.springframework.stereotype.Service;
