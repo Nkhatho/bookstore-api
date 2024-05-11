@@ -13,7 +13,7 @@ import org.springframework.web.filter.RequestContextFilter;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/v1/bookstore/books")
+@RequestMapping("/v1/bookstore")
 public class BookController {
     private final BookService bookService;
 
@@ -21,20 +21,14 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @PostMapping("/")
+    @PostMapping("/books")
     public ResponseEntity<BookDataResponseBody> addBook(@RequestBody BookDTO bookDTO) {
         BookDataResponseBody bookData = new BookDataResponseBody();
         bookData.setData(bookService.persistBook(bookDTO));
         return new ResponseEntity<>(bookData, HttpStatus.CREATED);
     }
 
-//    @GetMapping("/")
-//    public ResponseEntity<Set<BookDataResponseBody>> getAllBooks() {
-//
-//        return ResponseEntity.ok(bookService.retrieveAllBooks());
-//    }
-
-    @GetMapping("/{book_id}")
+    @GetMapping("/books/{book_id}")
     public ResponseEntity<BookDataResponseBody> getBookById(@PathVariable("book_id") Long id) {
         try{
             BookDataResponseBody bookData = new BookDataResponseBody();

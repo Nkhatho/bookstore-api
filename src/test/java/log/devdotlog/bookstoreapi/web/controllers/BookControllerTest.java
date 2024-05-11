@@ -100,7 +100,7 @@ class BookControllerTest {
 
         String json = objectMapper.writeValueAsString(bookDTO);
         System.out.println(json);
-        mockMvc.perform(post("/v1/bookstore/books/")
+        mockMvc.perform(post("/v1/bookstore/books")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isCreated())

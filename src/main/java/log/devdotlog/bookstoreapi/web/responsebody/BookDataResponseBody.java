@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class BookDataResponseBody {
+    private BookDTO data;
     private Links links;
     private Meta meta;
-    private BookDTO data;
 }

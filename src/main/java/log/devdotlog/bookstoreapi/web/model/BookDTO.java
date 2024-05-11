@@ -18,7 +18,7 @@ import java.util.Set;
 @Builder
 public class BookDTO {
     // Note: A book has a title which is essentially a name, therefore it extends named entity.
-    // book title will be book name
+    // book title will be book namezz
     private Long id;
     private String name;
     private String isbn;
