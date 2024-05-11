@@ -95,13 +95,16 @@ class BookControllerTest {
                 .bookPublishers(bookPublishers)
                 .publishDate(currentTimeStamp)
                 .build();
+
         given(bookService.persistBook(bookDTO)).willReturn(bookDTO);
+
         String json = objectMapper.writeValueAsString(bookDTO);
+        System.out.println(json);
         mockMvc.perform(post("/v1/bookstore/books/")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.data.id").value(1))
                 .andDo(print());
 
     }

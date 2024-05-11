@@ -21,7 +21,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @PostMapping("/ ")
+    @PostMapping("/")
     public ResponseEntity<BookDataResponseBody> addBook(@RequestBody BookDTO bookDTO) {
         BookDataResponseBody bookData = new BookDataResponseBody();
         bookData.setData(bookService.persistBook(bookDTO));
