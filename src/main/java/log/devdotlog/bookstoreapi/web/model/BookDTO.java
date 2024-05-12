@@ -21,13 +21,12 @@ public class BookDTO {
     // book title will be book namezz
     private Long id;
     private String name;
+    private String description;
     private String isbn;
     private Long pages;
-    private Set<Author> authors;
-    private Set<BookPublisher> bookPublishers = new HashSet<>();
-    private Timestamp publishDate;
-    private Category category;
-    private String description;
-
+//    private Set<Author> authors;
+//    private Set<BookPublisher> bookPublishers = new HashSet<>();
+//    private Timestamp publishDate;
+//    private Category category;
 }
 // TODO: Figure out the order_history along with the order_status

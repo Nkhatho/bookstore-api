@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import log.devdotlog.bookstoreapi.domain.common.NamedEntity;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
@@ -19,6 +20,7 @@ public class Book extends NamedEntity {
 
     // Note: A book has a title which is essentially a name, therefore it extends named entity.
     // book title will be book name
+    private String description;
     @Column(
             name = "isbn",
             nullable = false,
@@ -43,7 +45,7 @@ public class Book extends NamedEntity {
     @JsonIgnoreProperties("book")
     private Set<BookPublisher> bookPublishers = new HashSet<>();
 
-    @CreationTimestamp
+    @DateTimeFormat(fallbackPatterns = {"yyyy/MM/dd"})
     @Column(
             name = "publish_date",
             updatable = false
@@ -62,12 +64,11 @@ public class Book extends NamedEntity {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    private String description;
-
     @Builder(builderMethodName = "bookBuilder")
-    public Book(Long id, String name, String isbn, Long pages, Set<Author> authors, Set<BookPublisher> bookPublishers, Timestamp publishDate,
-                 Category category, String description) {
+    public Book(Long id, String name, String description, String isbn, Long pages, Set<Author> authors, Set<BookPublisher> bookPublishers, Timestamp publishDate,
+                 Category category) {
         super(id, name);
+        this.description = description;
         this.isbn = isbn;
         this.pages = pages;
         this.authors = authors;
@@ -75,7 +76,7 @@ public class Book extends NamedEntity {
         this.publishDate = publishDate;
 //        this.purchase = purchase;
         this.category = category;
-        this.description = description;
+
     }
 }
 // TODO: Figure out the order_history along with the order_status

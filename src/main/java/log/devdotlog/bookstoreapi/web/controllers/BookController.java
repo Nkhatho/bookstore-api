@@ -4,6 +4,7 @@ import log.devdotlog.bookstoreapi.services.BookService;
 import log.devdotlog.bookstoreapi.web.exceptions.BookNotFoundException;
 import log.devdotlog.bookstoreapi.web.model.BookDTO;
 import log.devdotlog.bookstoreapi.web.responsebody.BookDataResponseBody;
+import log.devdotlog.bookstoreapi.web.responsebody.DataResponseBody;
 import log.devdotlog.bookstoreapi.web.responsebody.Meta;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,16 +23,16 @@ public class BookController {
     }
 
     @PostMapping("/books")
-    public ResponseEntity<BookDataResponseBody> addBook(@RequestBody BookDTO bookDTO) {
-        BookDataResponseBody bookData = new BookDataResponseBody();
+    public ResponseEntity addBook(@RequestBody BookDTO bookDTO) {
+        DataResponseBody<BookDTO> bookData = new DataResponseBody<>();
         bookData.setData(bookService.persistBook(bookDTO));
         return new ResponseEntity<>(bookData, HttpStatus.CREATED);
     }
 
     @GetMapping("/books/{book_id}")
-    public ResponseEntity<BookDataResponseBody> getBookById(@PathVariable("book_id") Long id) {
+    public ResponseEntity getBookById(@PathVariable("book_id") Long id) {
         try{
-            BookDataResponseBody bookData = new BookDataResponseBody();
+            DataResponseBody<BookDTO> bookData = new DataResponseBody<>();
             bookData.setData(bookService.retrieveBookById(id));
             return ResponseEntity.ok(bookData);
         } catch (BookNotFoundException e) {

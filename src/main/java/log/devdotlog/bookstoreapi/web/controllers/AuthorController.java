@@ -4,6 +4,7 @@ import log.devdotlog.bookstoreapi.services.AuthorService;
 import log.devdotlog.bookstoreapi.web.exceptions.AuthorNotFoundException;
 import log.devdotlog.bookstoreapi.web.model.AuthorDTO;
 import log.devdotlog.bookstoreapi.web.responsebody.AuthorDataResponseBody;
+import log.devdotlog.bookstoreapi.web.responsebody.DataResponseBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,8 +22,8 @@ public class AuthorController {
     }
 
     @PostMapping("/authors")
-    public ResponseEntity<AuthorDataResponseBody> createAuthor(@RequestBody AuthorDTO authorDTO){
-        AuthorDataResponseBody authorData = new AuthorDataResponseBody();
+    public ResponseEntity createAuthor(@RequestBody AuthorDTO authorDTO){
+        DataResponseBody<AuthorDTO> authorData = new DataResponseBody<>();
         authorData.setData(authorService.persistAuthor(authorDTO));
         return new ResponseEntity<>(authorData, HttpStatus.CREATED);
     }

@@ -8,23 +8,23 @@ import log.devdotlog.bookstoreapi.web.model.BookDTO;
 public class EntityBuilder {
     public static Book buildBookEntity(BookDTO bookDTO){
         return Book.bookBuilder()
-                .id(bookDTO.getId())
+//                .id(bookDTO.getId())
                 .name(bookDTO.getName())
                 .isbn(bookDTO.getIsbn())
                 .pages(bookDTO.getPages())
-                .authors(bookDTO.getAuthors())
-                .bookPublishers(bookDTO.getBookPublishers())
-                .publishDate(bookDTO.getPublishDate())
-                .category(bookDTO.getCategory())
+//                .authors(bookDTO.getAuthors())
+//                .bookPublishers(bookDTO.getBookPublishers())
+//                .publishDate(bookDTO.getPublishDate())
+//                .category(bookDTO.getCategory())
                 .build();
     }
 
     public static Author buildAuthorEntity(AuthorDTO authorDTO) {
         return Author.authorBuilder()
-                .id(authorDTO.getId())
+//                .id(authorDTO.getId())
                 .name(authorDTO.getName())
                 .surname(authorDTO.getSurname())
-                .books(authorDTO.getBooks())
+//                .books(authorDTO.getBooks())
                 .build();
     }
 }
