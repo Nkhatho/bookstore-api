@@ -1,8 +1,11 @@
 package log.devdotlog.bookstoreapi.web.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import log.devdotlog.bookstoreapi.domain.store.Author;
 import log.devdotlog.bookstoreapi.domain.store.BookPublisher;
 import log.devdotlog.bookstoreapi.domain.store.Category;
+import jakarta.validation.constraints.Null;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,10 +22,16 @@ import java.util.Set;
 public class BookDTO {
     // Note: A book has a title which is essentially a name, therefore it extends named entity.
     // book title will be book namezz
+
+    @Null
     private Long id;
+    @NotBlank
     private String name;
+    @NotBlank
     private String description;
+    @NotBlank
     private String isbn;
+    @Positive
     private Long pages;
 //    private Set<Author> authors;
 //    private Set<BookPublisher> bookPublishers = new HashSet<>();

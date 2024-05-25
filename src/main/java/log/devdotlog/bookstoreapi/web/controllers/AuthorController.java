@@ -1,9 +1,7 @@
 package log.devdotlog.bookstoreapi.web.controllers;
 
 import log.devdotlog.bookstoreapi.services.AuthorService;
-import log.devdotlog.bookstoreapi.web.exceptions.AuthorNotFoundException;
 import log.devdotlog.bookstoreapi.web.model.AuthorDTO;
-import log.devdotlog.bookstoreapi.web.responsebody.AuthorDataResponseBody;
 import log.devdotlog.bookstoreapi.web.responsebody.DataResponseBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

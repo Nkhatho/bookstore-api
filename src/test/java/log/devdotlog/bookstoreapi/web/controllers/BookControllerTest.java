@@ -1,15 +1,12 @@
 package log.devdotlog.bookstoreapi.web.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 //import log.devdotlog.bookstoreapi.domain.order.*;
 import log.devdotlog.bookstoreapi.domain.store.Author;
 import log.devdotlog.bookstoreapi.domain.store.Book;
 import log.devdotlog.bookstoreapi.domain.store.BookPublisher;
-import log.devdotlog.bookstoreapi.domain.store.Publisher;
 import log.devdotlog.bookstoreapi.services.BookService;
 import log.devdotlog.bookstoreapi.web.model.BookDTO;
-import log.devdotlog.bookstoreapi.web.responsebody.BookDataResponseBody;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +19,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.sql.Timestamp;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -89,11 +85,12 @@ class BookControllerTest {
         BookDTO bookDTO = BookDTO.builder()
                 .id(id)
                 .name("The Greater Beyond")
+                .description("A nice book to read on a Saturday.")
                 .isbn("1234567890987")
                 .pages(1001L)
-                .authors(authors)
-                .bookPublishers(bookPublishers)
-                .publishDate(currentTimeStamp)
+//                .authors(authors)
+//                .bookPublishers(bookPublishers)
+//                .publishDate(currentTimeStamp)
                 .build();
 
         given(bookService.persistBook(bookDTO)).willReturn(bookDTO);
@@ -106,7 +103,6 @@ class BookControllerTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.data.id").value(1))
                 .andDo(print());
-
     }
 
     @Test
@@ -117,9 +113,9 @@ class BookControllerTest {
                 .name("The Greater Beyond")
                 .isbn("1234567890987")
                 .pages(1001L)
-                .authors(authors)
-                .bookPublishers(bookPublishers)
-                .publishDate(currentTimeStamp)
+//                .authors(authors)
+////                .bookPublishers(bookPublishers)
+//                .publishDate(currentTimeStamp)
                 .build();
 
         given(bookService.retrieveBookById(id)).willReturn(bookDTO);
