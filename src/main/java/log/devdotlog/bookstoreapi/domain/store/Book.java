@@ -7,6 +7,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
@@ -50,7 +51,7 @@ public class Book extends NamedEntity {
             name = "publish_date",
             updatable = false
     )
-    private Timestamp publishDate;
+    private Date publishDate;
 
 //    @ManyToOne
 //    @JoinTable(
@@ -65,7 +66,7 @@ public class Book extends NamedEntity {
     private Category category;
 
     @Builder(builderMethodName = "bookBuilder")
-    public Book(Long id, String name, String description, String isbn, Long pages, Set<Author> authors, Set<BookPublisher> bookPublishers, Timestamp publishDate,
+    public Book(Long id, String name, String description, String isbn, Long pages, Set<Author> authors, Set<BookPublisher> bookPublishers, Date publishDate,
                  Category category) {
         super(id, name);
         this.description = description;

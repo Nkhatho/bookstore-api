@@ -19,6 +19,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -47,6 +49,7 @@ class BookControllerTest {
     BookService bookService;
 
     Timestamp currentTimeStamp;
+    java.sql.Date date;
 
     @BeforeEach
     void setUp() {
@@ -55,6 +58,8 @@ class BookControllerTest {
         books = new HashSet<>();
 
         currentTimeStamp = new Timestamp(new Date().getTime());
+        date = java.sql.Date.valueOf(LocalDate.of(2015, 9, 11));
+
 
         authors.add(Author.authorBuilder()
                 .name("Timothy")
@@ -72,7 +77,7 @@ class BookControllerTest {
                 .pages(1001L)
                 .authors(authors)
                 .bookPublishers(bookPublishers)
-                .publishDate(currentTimeStamp)
+                .publishDate(date)
                 .build());
     }
 
@@ -81,9 +86,7 @@ class BookControllerTest {
     }
     @Test
     void addBookTest() throws Exception {
-        Long id = 1L;
         BookDTO bookDTO = BookDTO.builder()
-                .id(id)
                 .name("The Greater Beyond")
                 .description("A nice book to read on a Saturday.")
                 .isbn("1234567890987")
@@ -101,7 +104,7 @@ class BookControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.data.id").value(1))
+                .andExpect(jsonPath("$.data.name").value("The Greater Beyond"))
                 .andDo(print());
     }
 
@@ -123,7 +126,7 @@ class BookControllerTest {
         mockMvc.perform(get("/v1/bookstore/books/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data.id").value(1))
+                .andExpect(jsonPath("$.data.id").value(id))
                 .andDo(print());
 //        .andExpect(jsonPath("$.name").value("The Greater Beyond"))
 

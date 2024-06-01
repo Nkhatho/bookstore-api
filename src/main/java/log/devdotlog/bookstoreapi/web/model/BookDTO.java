@@ -35,7 +35,7 @@ public class BookDTO {
     private Long pages;
 //    private Set<Author> authors;
 //    private Set<BookPublisher> bookPublishers = new HashSet<>();
-//    private Timestamp publishDate;
+//    private Date publishDate;
 //    private Category category;
 }
 // TODO: Figure out the order_history along with the order_status
